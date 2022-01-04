@@ -1,10 +1,17 @@
 const express = require('express')
-const posts = express.Router()
-const Post = require('../models/bread.js')
+const router = require('express').Router()
+const db = require('../models')
 
 // INDEX
-breads.get('/', (req, res) => {
-  res.send(Bread)
+router.get('/', (req, res) => {
+    db.Post.find()
+        .then((posts) => {
+            res.render('posts/index', { posts })
+        })
+        .catch(err => {
+            console.log('err', err)
+            res.render('404')
+        })
 })
 
-module.exports = posts
+module.exports = router

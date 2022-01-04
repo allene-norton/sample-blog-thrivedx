@@ -27,7 +27,6 @@
 // DEPENDENCIES
 const express = require('express')
 const methodOverride = require('method-override')
-const mongoose = require('mongoose')
 
 // CONFIGURATION
 require('dotenv').config()
@@ -40,6 +39,9 @@ app.use(express.urlencoded({extended: true}))
 app.use(express.static('public'))
 app.set('view engine', 'jsx')
 app.engine('jsx', require('express-react-views').createEngine())
+
+// CONTROLLERS
+app.use('/posts', require('./controllers/posts_controller'))
 
 // ROUTES
 app.get('/', (req, res) => {
