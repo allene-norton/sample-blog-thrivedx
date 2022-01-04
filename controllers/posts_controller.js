@@ -10,7 +10,7 @@ router.get('/', (req, res) => {
         })
         .catch(err => {
             console.log('err', err)
-            res.render('404')
+            res.render('my404')
         })
 })
 

@@ -48,6 +48,10 @@ app.get('/', (req, res) => {
   res.render('home')
 })
 
+app.get('*', (req, res) => {
+    res.render('my404')
+})
+
 // LISTEN
 app.listen(PORT, () => {
   console.log('nomming at port', PORT);
