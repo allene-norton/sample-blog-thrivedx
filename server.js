@@ -11,14 +11,14 @@ app.use(express.urlencoded({ extended: true }))
 app.use(methodOverride('_method'))
 
 // Controllers & Routes
-app.use('/places', require('./controllers/places'))
+app.use('/posts', require('./controllers/posts_controller'))
 
 app.get('/', (req, res) => {
     res.render('home')
 })
 
 app.get('*', (req, res) => {
-    res.render('error404')
+    res.render('404')
 })
 
 // Listen for Connections
